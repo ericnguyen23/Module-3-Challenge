@@ -6,30 +6,30 @@ var pwLength = 0;
 
 // Prompt function
 function prompts() {
-  var okyes = "OK for yes, cancel for no.";
-  // using confirm method to set variables to boolean based on response
+  var confirmText = "OK for yes, Cancel for no.";
+
+  // grab user criteria and save to var
   allowUppercase = confirm(
-    "Would you like to include Uppercase characters? " + okyes
+    "Would you like to include UPPERCASE characters? " + confirmText
   );
-  allowNumbers = confirm("Would you like to include numbers? " + okyes);
+  allowNumbers = confirm("Would you like to include numbers? " + confirmText);
   allowCharacters = confirm(
-    "Would you like to include special characters? " + okyes
+    "Would you like to include special characters? " + confirmText
   );
   pwLength = parseInt(
     prompt(
-      "How long of a password? Please enter a numeric value between 8 and 128 characters in length."
+      "How long would you like your password to be? Please enter a numeric value between 8 and 128."
     )
   );
 
+  // check if correct amount of characters and store boolean value into a var
   var rightAmountOfChars = pwLength > 7 && pwLength < 129 ? true : false;
-
-  console.log(rightAmountOfChars);
 
   // validate if user has entered a numeric value
   while (isNaN(pwLength) || rightAmountOfChars === false) {
     pwLength = parseInt(
       prompt(
-        "How long of a password? PLEASE ENTER A NUMERIC VALUE BETWEEN 8 and 128 CHARCTERS IN LENGTH."
+        "How long would you like your password to be? PLEASE ENTER A NUMERIC VALUE BETWEEN 8 and 128."
       )
     );
 
@@ -38,17 +38,14 @@ function prompts() {
       rightAmountOfChars = true;
     }
   }
-
-  // accept only 8-128 characters
 }
 
 // Generate password
 function generatePassword(length) {
   // set initial vars to store result and counter
   var result = "";
-  var counter = 0;
 
-  // assign type of characters to a var
+  // assign type of characters to a var, lower cased will be defaulted
   var userAcceptedChars = "abcdefghijklmnopqrstuvwxyz";
   var upperCaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var nums = "0123456789";
@@ -67,9 +64,9 @@ function generatePassword(length) {
     userAcceptedChars += specialChars;
   }
 
-  // loop through to get random password
+  // loop through the amount of times length is equal to, to get random password
   for (var i = 0; i < length; i++) {
-    // get random number based on length passed in
+    // get random number based on length of userAcceptedChars
     var randomNumber = Math.floor(Math.random() * userAcceptedChars.length);
     // store each iteration into result variable
     result += userAcceptedChars[randomNumber];
