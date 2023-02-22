@@ -15,18 +15,31 @@ function prompts() {
   allowCharacters = confirm(
     "Would you like to include special characters? " + okyes
   );
-  pwLength = prompt(
-    "What length would you like your password to be? Please at least 8 characters and at most 128."
+  pwLength = parseInt(
+    prompt(
+      "How long of a password? Please enter a numeric value between 8 and 128 characters in length."
+    )
   );
 
-  // validate if user has entered a value for pw length
-  // if (pwLength == "") {
-  //   pwLength = prompt(
-  //     "PLEASE ENTER A VALUE. What length would you like your password to be? Please at least 8 characters and at most 128."
-  //   );
-  // }
+  var rightAmountOfChars = pwLength > 7 && pwLength < 129 ? true : false;
 
-  // validate if user entered a numerical value for pw lentgh
+  console.log(rightAmountOfChars);
+
+  // validate if user has entered a numeric value
+  while (isNaN(pwLength) || rightAmountOfChars === false) {
+    pwLength = parseInt(
+      prompt(
+        "How long of a password? PLEASE ENTER A NUMERIC VALUE BETWEEN 8 and 128 CHARCTERS IN LENGTH."
+      )
+    );
+
+    // set rightAmountOfChars to true if criteria is met
+    if (pwLength > 7 && pwLength < 129) {
+      rightAmountOfChars = true;
+    }
+  }
+
+  // accept only 8-128 characters
 }
 
 // Generate password
@@ -54,15 +67,13 @@ function generatePassword(length) {
     userAcceptedChars += specialChars;
   }
 
-  // Mix up userAcceptedChars at random first
-
-  // Loop to add to password depending on length provided by user
+  // loop through to get random password
   for (var i = 0; i < length; i++) {
-    result += userAcceptedChars.charAt(Math.floor(Math.random() * length));
-    counter += 1;
+    // get random number based on length passed in
+    var randomNumber = Math.floor(Math.random() * userAcceptedChars.length);
+    // store each iteration into result variable
+    result += userAcceptedChars[randomNumber];
   }
-
-  console.log(userAcceptedChars);
 
   return result;
 }
