@@ -27,8 +27,10 @@ THEN a password is generated that matches the selected criteria
 - WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 
-Screenshot of the project:
+### Screenshot of the project
 
 ![screenshot](screenshot.png)
 
-Link to deployed site: [Password Generator](https://ericnguyen23.github.io/Module-3-Challenge/)
+### Link to deployed site
+
+[Password Generator](https://ericnguyen23.github.io/Module-3-Challenge/)
