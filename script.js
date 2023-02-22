@@ -7,8 +7,8 @@ var pwLength = 0;
 // Prompt function
 function prompts() {
   // using confirm method to set variables to boolean based on response
-  // uppercase = confirm("Would you like to include Uppercase characters?");
-  // numbers = confirm("Would you like to include numbers?");
+  uppercase = confirm("Would you like to include Uppercase characters?");
+  numbers = confirm("Would you like to include numbers?");
   // characters = confirm("Would you like to include special characters?");
   pwLength = prompt(
     "What length would you like your password to be? Please at least 8 characters and at most 128"
@@ -16,20 +16,24 @@ function prompts() {
 }
 
 // Generate password
-function generatePassword(pwLength) {
+function generatePassword(length) {
   // set initial vars to store result and counter
   var result = "";
   var counter = 0;
 
   // assign type of characters to a var
+  var userAcceptedChars = "abcdefghijklmnopqrstuvwxyz";
   var upperCaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var lowerCaseChars = "abcdefghijklmnopqrstuvwxyz";
   var nums = "0123456789";
-  var specialChars = "!@#$%^&*";
+  var specialChars = "!@#$%^&*()_+-~{}'<>?";
 
-  // taking pwLength as paramater, loop through that amount of times to dipslay appropriate charcter count
-  while (counter < pwLength) {
-    result += lowerCaseChars.charAt(Math.floor(Math.random() * pwLength));
+  if (upperCaseChars) {
+    userAcceptedChars += upperCaseChars;
+  } 
+
+  // taking length as paramater, loop through that amount of times to dipslay appropriate charcter count
+  while (counter < length) {
+    result += userAcceptedChars.charAt(Math.floor(Math.random() * length));
     counter += 1;
   }
 
