@@ -2,7 +2,7 @@
 
 This project utilizes JavaScript to allow users to generate a secure password based on a set of criteria.
 
-It solves the follwing acceptance criterias:
+It solves the following acceptance criterias:
 
 ## GIVEN I need a new, secure password
 
