@@ -1,10 +1,10 @@
-# Module-3-Challenge - Password Generator
+# Password Generator
 
-This project utilizes JavaScript to add functionality to a password generator.
+This project utilizes JavaScript to allow users to generate a secure password based on a set of criteria.
 
 It solves the follwing acceptance criterias:
 
-GIVEN I need a new, secure password
+## GIVEN I need a new, secure password
 
 - WHEN I click the button to generate a password
 THEN I am presented with a series of prompts for password criteria
